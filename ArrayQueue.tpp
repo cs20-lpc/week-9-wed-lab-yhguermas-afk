@@ -27,6 +27,7 @@ template <typename T>
 ArrayQueue<T>::~ArrayQueue() {
         clear();
 }
+
 //back:reurens the back element and throws an exception if queue is empty 
 template <typename T>
 T ArrayQueue<T>::back() const {
@@ -36,6 +37,7 @@ T ArrayQueue<T>::back() const {
     return buffer[backIndex];
 }
 
+//clear:resets the queue to its initial state and length and deletes old buffer and reallocates 
 template <typename T>
 void ArrayQueue<T>::clear() {
     delete[] buffer;
@@ -46,6 +48,7 @@ void ArrayQueue<T>::clear() {
     backIndex = -1;
 }
 
+//copy:copies all attributes and buffer contents and implements a deep fake in order to not share memory
 template <typename T>
 void ArrayQueue<T>::copy(const ArrayQueue<T>& copyObj) {
     maxSize = copyObj.maxSize;
@@ -60,6 +63,7 @@ void ArrayQueue<T>::copy(const ArrayQueue<T>& copyObj) {
     }
 }
 
+//dequeue:throws the excepetion if queue is empty then circularly increments frontIndex, and decrements length.
 template <typename T>
 void ArrayQueue<T>::dequeue() {
     if (isEmpty()) {
@@ -69,7 +73,7 @@ void ArrayQueue<T>::dequeue() {
     frontIndex = (frontIndex + 1) % maxSize;
     this->length--;
 }
-
+//enqueue:throws exception if queue is full and increments length. 
 template <typename T>
 void ArrayQueue<T>::enqueue(const T& elem) {
     if (isFull()) {
@@ -80,7 +84,7 @@ void ArrayQueue<T>::enqueue(const T& elem) {
     buffer[backIndex] = elem;
     this->length++;
 }
-
+//front:returns the front element and throws exception if queue is empty
 template <typename T>
 T ArrayQueue<T>::front() const {
     if (isEmpty()) {
