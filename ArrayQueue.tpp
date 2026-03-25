@@ -27,7 +27,7 @@ template <typename T>
 ArrayQueue<T>::~ArrayQueue() {
         clear();
 }
-
+//back:reurens the back element and throws an exception if queue is empty 
 template <typename T>
 T ArrayQueue<T>::back() const {
     if (isEmpty()) {
