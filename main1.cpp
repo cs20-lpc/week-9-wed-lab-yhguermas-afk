@@ -6,7 +6,7 @@ int main() {
     //created a queue of 10 integers
     ArrayQueue<int> queueA(10);
 
-    //called front() and back () on an empty queue and caught exceptions
+    //called front() and back () on an empty queue and caught the exceptions
     try {
         cout << queueA.front() << " ";
     } catch (string& e) {
