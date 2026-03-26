@@ -1,4 +1,4 @@
-//constructor: allocated dynamic array buffer and set length to 0. initialized frontIndex to 0 and backIndex to -1
+//constructor: allocats dynamic array buffer and set length to 0. initialized frontIndex to 0 and backIndex to -1
 template <typename T>
 ArrayQueue<T>::ArrayQueue(int size) {
     maxSize = size;
